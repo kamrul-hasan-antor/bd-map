@@ -704,7 +704,7 @@ const Mapcontainer = () => {
         fetch("/data/divisions.json"),
         fetch("/data/districts.json"),
         fetch("/data/upozilas.json"),
-        fetch("/data/unions.json"),
+        fetch("/data/thanas.json"),
       ]);
       const bdData = await bdRes.json();
       const divData = await divRes.json();
