@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# large data files
+/public/data/unions.json
+/public/data/upozilas.json
