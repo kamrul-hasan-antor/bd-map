@@ -295,7 +295,7 @@ const Mapcontainer = () => {
     const map = new maplibregl.Map({
       container: mapContainer.current,
       style: { version: 8, sources: {}, layers: [] },
-      maxZoom: 12,
+      maxZoom: 14,
     });
 
     map.on("load", async () => {
