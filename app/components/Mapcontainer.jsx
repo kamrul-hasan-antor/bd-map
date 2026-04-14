@@ -146,7 +146,7 @@ const Mapcontainer = () => {
       id: "bd-outline",
       type: "line",
       source: "bd",
-      paint: { "line-color": "#000", "line-width": 0.8 },
+      paint: { "line-color": "#000", "line-width": 0.5 },
     });
 
     const bounds = new maplibregl.LngLatBounds();
@@ -295,7 +295,7 @@ const Mapcontainer = () => {
     const map = new maplibregl.Map({
       container: mapContainer.current,
       style: { version: 8, sources: {}, layers: [] },
-      maxZoom: 14,
+      maxZoom: 13,
     });
 
     map.on("load", async () => {
@@ -335,6 +335,7 @@ const Mapcontainer = () => {
         },
         popup,
       );
+
       setLoading(false);
 
       let districtsLoaded = false;
@@ -421,12 +422,17 @@ const Mapcontainer = () => {
         );
       };
 
-      map.on("zoom", () => {
-        const z = map.getZoom();
-        if (z > 5.5) loadDistricts();
-        if (z > 7.5) loadUpozilas();
-        if (z > 9.5) loadUnions();
-      });
+      loadDistricts();
+      loadUpozilas();
+      loadUnions();
+
+      // setLoading(false);
+      // map.on("zoom", () => {
+      //   const z = map.getZoom();
+      //   if (z > 5.5) loadDistricts();
+      //   if (z > 7.5) loadUpozilas();
+      //   if (z > 9.5) loadUnions();
+      // });
     });
   }, []);
 
